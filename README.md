@@ -6,9 +6,9 @@ Based on github.com/jpcaparas/docker-web-stack.git
 
 > mv .env.example .env
 
-> docker compose build
+> docker-compose build
 
-> docker compose up
+> docker-compose up
 
 ## Usage
 
