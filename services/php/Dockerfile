@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.3-fpm
 
 # updates
 RUN apt-get update && apt-get install -y \
@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
 			libssl-dev \
 			libpq-dev \
 			libbz2-dev \
-			libpng-dev
+			libpng-dev \
+            libzip-dev
 
 # extensions
 RUN docker-php-ext-install opcache && \
@@ -18,7 +19,6 @@ RUN docker-php-ext-install opcache && \
     docker-php-ext-install dom && \
     docker-php-ext-install gd && \
     docker-php-ext-install mbstring && \
-    docker-php-ext-install mcrypt && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install pdo pdo_mysql
 
@@ -41,7 +41,7 @@ RUN if [ ${XDEBUG_ON} = true ]; then \
 VOLUME ["/var/www"]
 
 # starting point
-WORKDIR /var/www
+WORKDIR /var/www/backend
 
 # make web server connect to this port
 EXPOSE 9000

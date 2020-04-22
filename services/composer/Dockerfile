@@ -1,9 +1,9 @@
-FROM composer:1.4.2
+FROM composer:1.10.5
 
 # mark volume/s as externally mounted
 VOLUME ["/app"]
 
 # starting point
-WORKDIR /app
+WORKDIR /app/backend
 
 CMD ["composer"]

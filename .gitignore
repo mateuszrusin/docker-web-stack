@@ -63,8 +63,8 @@ $RECYCLE.BIN/
 .nfs*
 
 ### Composer template
-/vendor/
-composer.phar
+/backend/vendor/
+/backend/composer.phar
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
@@ -103,17 +103,17 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+frontend/build/Release
 
 # Dependency directories
-node_modules/
+frontend/node_modules/
 jspm_packages/
 
 # Typescript v1 declaration files
-typings/
+frontend/typings/
 
 # Optional npm cache directory
-.npm
+frontend/.npm
 
 # Optional eslint cache
 .eslintcache
