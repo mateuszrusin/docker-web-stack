@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 # updates
 RUN apt-get update && apt-get install -y \
@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 			libpq-dev \
 			libbz2-dev \
 			libpng-dev \
+            libonig-dev \
             libzip-dev
 
 # extensions
