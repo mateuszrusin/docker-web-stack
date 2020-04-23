@@ -132,3 +132,6 @@ frontend/.npm
 
 ### MariaDB
 /mariadb
+
+.idea
+!/backend/composer.lock
