@@ -35,6 +35,9 @@ before_install:
   # list running containers
   - docker-compose ps
 
+  # default .env
+  - mv /backend/.env.dist /backend/.env
+
 script:
   # install composer packages
   - docker-compose run -T --rm composer install
