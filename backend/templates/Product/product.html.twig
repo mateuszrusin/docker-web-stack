@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        #simpleform {
+            margin: 0 auto;
+            width: 600px;
+            border: 2px solid grey;
+            padding: 14px;
+            font-family: verdana;
+        }
+
+        #simpleform label {
+            font-size: 14px;
+            float: left;
+            width: 300px;
+            text-align: right;
+            display: block;
+            padding-top: 6px;
+        }
+
+        #simpleform span {
+            font-size: 11px;
+            color: grey;
+            width: 100px;
+            text-align: right;
+            display: block;
+        }
+
+        #simpleform input {
+            border: 1px solid grey;
+            font-family: verdana;
+            font-size: 14px;
+            color: light blue;
+            height: 24px;
+            width: 250px;
+            margin: 0 0 10px 10px;
+        }
+
+        #simpleform textarea {
+            border: 1px solid grey;
+            font-family: verdana;
+            font-size: 14px;
+            color: light blue;
+            height: 120px;
+            width: 250px;
+            margin: 0 0 20px 10px;
+        }
+
+        #simpleform select {
+            margin: 0 0 20px 10px;
+        }
+
+        #simpleform button {
+            clear: both;
+            margin-left: 250px;
+            background: grey;
+            color: #FFFFFF;
+            border: solid 1px #666666;
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div id="simpleform">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        (function ($) {
+            $.fn.serializeFormJSON = function() {
+                let o = {};
+                let a = this.serializeArray();
+                $.each(a, function () {
+                    let name = this.name;
+                    let value = this.value || '';
+                    if (this.type == 'text') {
+                        if (!Array.isArray(o[name])) {
+                            o[name] = [o[name]];
+                        }
+                        o[name].push(value);
+                    } else {
+                        o[name] = value;
+                    }
+                });
+
+                return o;
+            };
+        })(jQuery);
+
+        $('form').submit(function(e) {
+            e.preventDefault();
+
+            let form = $(this);
+            let url  = form.attr('action');
+            let data = form.serializeArray().map(function(x){this[x.name] = x.value; return this;}.bind({}))[0]
+
+            console.log(data);
+
+            $.ajax({
+                type: 'PATCH',
+                url: url,
+                data: data,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                },
+            });
+        });
+    </script>
+{% endblock %}

@@ -3,6 +3,10 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,6 +27,19 @@ class ProductController extends AbstractController
             );
         }
 
-        return new Response('Check out this great product: ' . print_r($product, 1));
+        $form = $this->createFormBuilder($product)
+            ->add('name', TextType::class)
+            ->add('kcal', IntegerType::class)
+            ->add('protein', NumberType::class)
+            ->add('fat', NumberType::class)
+            ->add('carbo', NumberType::class)
+            ->add('save', SubmitType::class, ['label' => 'OK'])
+            ->setAction($this->generateUrl('api_products_patch_item', ['id' => $id]))
+            ->setMethod('PATCH')
+            ->getForm();
+
+        return $this->render('Product/product.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

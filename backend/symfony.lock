@@ -188,6 +188,9 @@
             ".env"
         ]
     },
+    "symfony/form": {
+        "version": "v5.0.7"
+    },
     "symfony/framework-bundle": {
         "version": "4.4",
         "recipe": {
@@ -217,8 +220,17 @@
     "symfony/inflector": {
         "version": "v5.0.7"
     },
+    "symfony/intl": {
+        "version": "v5.0.7"
+    },
     "symfony/mime": {
         "version": "v5.0.7"
+    },
+    "symfony/options-resolver": {
+        "version": "v5.0.7"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.15.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.15.0"
