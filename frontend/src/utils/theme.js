@@ -1,0 +1,1 @@
+export const mineShaft = '#262626';
