@@ -7,4 +7,4 @@ then
     docker-compose build --force
 fi
 
-docker-compose up --remove-orphans
+docker-compose up -d --remove-orphans
