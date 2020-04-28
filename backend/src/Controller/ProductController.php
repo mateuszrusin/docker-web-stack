@@ -38,7 +38,7 @@ class ProductController extends AbstractController
             ->setMethod('PATCH')
             ->getForm();
 
-        return $this->render('Product/product.html.twig', [
+        return $this->render('product/product.html.twig', [
             'form' => $form->createView(),
         ]);
     }

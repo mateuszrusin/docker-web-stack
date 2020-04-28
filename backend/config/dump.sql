@@ -10,6 +10,16 @@ CREATE TABLE product (
     PRIMARY KEY(id)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 
+create table if not exists user
+(
+    id int auto_increment primary key,
+    email varchar(180) not null,
+    roles longtext collate utf8mb4_bin not null,
+    password varchar(255) not null,
+    constraint UNIQ_8D93D649E7927C74 unique (email),
+    constraint roles check (json_valid(`roles`))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+
 insert into product (id, name, kcal, protein, fat, carbo) values (1, 'Agrest', 41, 0.8, 0.2, 11.8);
 insert into product (id, name, kcal, protein, fat, carbo) values (2, 'Amarantus. nasiona', 400, 14.5, 6.5, 66.2);
 insert into product (id, name, kcal, protein, fat, carbo) values (3, 'Ananas', 54, 0.4, 0.2, 13.6);
