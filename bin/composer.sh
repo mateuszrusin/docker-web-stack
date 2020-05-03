@@ -4,7 +4,7 @@ if [ -z "$1" ]
 then
     CMD="bash"
 else
-    CMD="composer "$1
+    CMD="composer "$@
 fi
 
 docker-compose run composer ${CMD}
