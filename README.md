@@ -1,19 +1,16 @@
 # Docker web stack
 
-Based on github.com/jpcaparas/docker-web-stack.git
+Based on https://github.com/jpcaparas/docker-web-stack
 
-## Run
+## Setup docker
 
-> mv .env.example .env
-
-> docker-compose build
-
-> docker-compose up
+> ./app install
 
 ## Usage
 
-**./node.sh** to enter interactive mode in node container (with yarn, /frontend dir)
-
-**./php.sh** to enter interactive mode in php-fpm container (/backend dir)
-
-**./composer.sh [composer commands]** to run composer commands or enter bash (/backend dir)
+> ./app start [options] - to (re)start containers (-d to detach, -f to force rebuild)
+> ./app node
+> ./app php
+> ./app db - to enter MariaDb cli
+> ./app composer [commands] - to run php composer commands 
+> ./app console [commands] - to run symfony bin/console commands
