@@ -3,6 +3,7 @@ import './App.css';
 import AppWrapper from './utils/AppWrapper.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
+import BuildMeal from './components/BuildMeal/BuildMeal';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Switch>
         <AppWrapper>
           <Route exact path="/" component={Home} />
+          <Route path='/meal' component={BuildMeal} />
         </AppWrapper>
       </Switch>
     </Router>

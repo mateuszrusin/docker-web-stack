@@ -19,7 +19,6 @@ const Navigation = ({ children }) => {
       <i onClick={() => nav.current.classList.remove('active')} className="fas fa-times"></i>
       <i onClick={() => nav.current.classList.add('active')} className="fas fa-bars"></i>
     </NavigationWrapper>
-
   );
 }
 

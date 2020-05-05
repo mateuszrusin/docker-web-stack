@@ -7,7 +7,7 @@ export const NavigationWrapper = styled.nav`
   height: 100vh;
   background-color: ${({ theme }) => theme.mineShaft};
   width: 270px;
-  box-shadow: 7px 10px 10px black;
+  box-shadow: 2px 5px 5px black;
   border-radius: 1px;
 
   i.fa-times {

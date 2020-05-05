@@ -9,11 +9,15 @@ import store from './redux/store';
 import { ThemeProvider } from 'styled-components';
 import * as theme from './utils/theme';
 
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:8080/api'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-      <App />
+        <App />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
