@@ -2,14 +2,11 @@
 
 docker-compose down
 
-OPTS=''
+OPTS='-d'
 
-while getopts 'dfh' opt; do
+while getopts 'fh' opt; do
 
   case ${opt} in
-    d)
-      OPTS+='d'
-      ;;
     f)
       docker-compose build --force --no-cache --parallel
       ;;
@@ -28,9 +25,5 @@ while getopts 'dfh' opt; do
   esac
 done
 shift $((OPTIND-1))
-
-if [ ! -z "${OPTS}" ]; then
-    OPTS='-'${OPTS}
-fi
 
 docker-compose up ${OPTS} --remove-orphans
